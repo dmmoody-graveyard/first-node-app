@@ -33,7 +33,9 @@ function user(request, response) {
         avatarUrl: profileJSON.gravatar_url,
         username: profileJSON.profile_name,
         badges: profileJSON.badges.length,
-        javaScriptPoints: profileJSON.points.JavaScript
+        points: profileJSON.points.total,
+        javaScriptPoints: profileJSON.points.JavaScript,
+        allPoints: profileJSON.points
       }
       renderer.view("profile", values, response);
       renderer.view("footer", {}, response);
@@ -46,8 +48,6 @@ function user(request, response) {
       renderer.view("footer", {}, response);
       response.end();
     });
-
-
   }
 }
 
